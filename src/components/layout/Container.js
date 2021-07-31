@@ -8,6 +8,7 @@ export const Container = (props) => {
   const color = { light: 'black', dark: 'white' }
   return (
     <Flex
+      suppressHydrationWarning={true}
       direction="column"
       alignItems="center"
       justifyContent="flex-start"

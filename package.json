@@ -3,14 +3,18 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "ganache": "ganache-cli --fork --mnemonic 'merry notice voice when split denial divorce nice guitar cross call dash pony ranch photo' --db './src/db/' --networkId 100",
+    "ganache debug": "ganache --debug --verbose"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.0",
     "@chakra-ui/react": "^1.4.2",
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
+    "ethers": "^5.4.3",
     "framer-motion": "^4.0.3",
+    "ganache-core": "^2.13.2",
     "next": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
