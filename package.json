@@ -1,17 +1,24 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
-    "ganache": "ganache-cli --fork --mnemonic 'merry notice voice when split denial divorce nice guitar cross call dash pony ranch photo' --db './src/db/' --networkId 100",
-    "ganache debug": "ganache --debug --verbose"
+    "latest:block": "curl -sb -X POST --data '{\"jsonrpc\":\"2.0\",\"method\":\"eth_getBlockByNumber\",\"params\":[\"latest\", false],\"id\":1}' https://mainnet.infura.io/v3/b8f090fd80d34184b6c84039ce60fe57 | tac |  jq -ra '.result.number' | (node <<< \"console.log(parseInt($(cat $1), 16))\") > .latest-block-hash",
+    "ganache": "yarn latest:block && ganache-cli --fork https://mainnet.infura.io/v3/b8f090fd80d34184b6c84039ce60fe57@$(cat .latest-block-hash) --mnemonic 'merry notice voice when split denial divorce nice guitar cross call dash pony ranch photo'",
+    "ganache:debug": "start:blockchain --debug --verbose"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.0",
     "@chakra-ui/react": "^1.4.2",
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
+    "@svgr/webpack": "^5.5.0",
+    "axios": "^0.21.1",
+    "coingecko-api": "^1.0.10",
+    "cors": "^2.8.5",
+    "currency.js": "^2.0.4",
+    "dotenv": "^10.0.0",
     "ethers": "^5.4.3",
     "framer-motion": "^4.0.3",
     "ganache-core": "^2.13.2",

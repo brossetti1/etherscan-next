@@ -12,6 +12,7 @@ export const Container = (props) => {
       direction="column"
       alignItems="center"
       justifyContent="flex-start"
+      height="100%"
       bg={bgColor[colorMode]}
       color={color[colorMode]}
       {...props}

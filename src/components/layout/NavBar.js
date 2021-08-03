@@ -7,10 +7,16 @@ import Image from 'next/image'
 import ethereumLogo from '../../../public/ethereum-icon.png'
 
 function Logo(props) {
+  const logoImage = <Image src={ethereumLogo} alt="etheruem logo"/>
+
   return (
     <Box {...props}>
       <Text fontSize="lg" fontWeight="bold">
-        <Image src={ethereumLogo} alt="etheruem logo"/>
+        <Link
+          isExternal
+          href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+          { logoImage }
+        </Link>
       </Text>
     </Box>
   )
